@@ -10,11 +10,26 @@ es6Renderer = require('express-es6-template-engine'),
 app.engine('html', es6Renderer);
 app.set('views', 'views');
 app.set('view engine', 'html');
-const { Configuration, OpenAIApi } = require("openai");
-const configuration = new Configuration({
-  apiKey: "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",
-});
-const openai = new OpenAIApi(configuration);
+require('dotenv').config()
+
+const validaOpenai = async (expresion)=>{
+    const { Configuration, OpenAIApi } = require("openai");
+    const configuration = new Configuration({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+    const openai = new OpenAIApi(configuration);
+    pregunta = `contiene lenguaje 
+     javascript en la siguiente expresion?
+    "${expresion}". Responde true o false en minusculas`
+    console.log(pregunta);
+    const completion = await openai.createCompletion({
+        model: "text-davinci-003",
+        prompt: pregunta
+      });
+      console.log(completion.data.choices[0].text);
+      return completion.data.choices[0].text.trim();
+}
+
 
 
 app.get('/test',(request,response)=>{
@@ -30,15 +45,8 @@ app.get('/index',(request,response) =>{
     response.render('index')
 })
 app.post('/enviarDatos',async (request,response) =>{
-    pregunta = `existe algun lenguaje de programacion en las siguientes lineas?
-    "${request.body.buscar}". Responde true o false en minusculas`
-    console.log(pregunta);
-    const completion = await openai.createCompletion({
-        model: "text-davinci-003",
-        prompt: pregunta
-      });
-      console.log(completion.data.choices[0].text);
-    if(completion.data.choices[0].text.trim() == "true"){
+    const respuesta = await validaOpenai(request.body.buscar)
+    if(respuesta == "true"){
         response.render('recibe_datos',{locals: {busqueda : "Busqueda invalida"}})
     }else{
         response.render('recibe_datos',{locals: {busqueda : request.body.buscar}})
