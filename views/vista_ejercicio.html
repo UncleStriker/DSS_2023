@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Formulario Simple</title>
+</head>
+<body>
+	<h1>Formulario Simple</h1>
+	<form action="/recibeDataEjercicio" method="POST">
+		<label for="nombre">Nombre:</label>
+		<input type="text" id="nombre" name="nombre"><br><br>
+
+		<label for="apellido">Apellido:</label>
+		<input type="text" id="apellido" name="apellido"><br><br>
+
+		<label for="email">Correo electrónico:</label>
+		<input type="email" id="email" name="email"><br><br>
+
+		<label for="mensaje">Mensaje:</label><br>
+		<textarea id="mensaje" name="mensaje" rows="5" cols="30"></textarea><br><br>
+
+		<input type="submit" value="Enviar">
+	</form>
+</body>
+</html>
