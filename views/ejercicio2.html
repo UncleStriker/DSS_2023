@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de sesión</title>
+    <!-- Agregamos Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div class="max-w-md w-full mx-auto">
+        <div class="text-center font-medium text-xl mb-6">Inicio de sesión</div>
+        <form class="bg-white rounded-lg shadow-md p-8">
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="email">Correo electrónico</label>
+            <input
+              class="w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="email"
+              placeholder="nombre@ejemplo.com"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-2" for="password">Contraseña</label>
+            <input
+              class="w-full border rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="*********"
+            />
+          </div>
+          <div class="mb-4 flex items-center justify-between">
+            <label class="block text-gray-500 font-medium">
+              <input class="mr-2 leading-tight" type="checkbox" />
+              <span class="text-sm">Recuérdame</span>
+            </label>
+            <a class="text-blue-500 hover:text-blue-700" href="#">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div>
+            <button
+              class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              Iniciar sesión
+            </button>
+          </div>
+        </form>
+        <div class="text-gray-600 text-sm mt-4 text-center">
+          ¿No tienes una cuenta?
+          <a class="text-blue-500 hover:text-blue-700 font-medium" href="#">Regístrate aquí</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

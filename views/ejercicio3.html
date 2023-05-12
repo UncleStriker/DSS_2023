@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio de sesión</title>
+    <!-- Agregamos Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100 text-gray-800">
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="max-w-md w-full mx-auto">
+        <div class="text-center font-medium text-xl mb-6">Inicio de sesión</div>
+        <form class="bg-white rounded-lg shadow-md p-8">
+          <div class="mb-4">
+            <label class="block text-gray-500 font-medium mb-2" for="email">Correo electrónico</label>
+            <input
+              class="w-full border border-gray-400 rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="email"
+              placeholder="nombre@ejemplo.com"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block text-gray-500 font-medium mb-2" for="password">Contraseña</label>
+            <input
+              class="w-full border border-gray-400 rounded-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="password"
+              type="password"
+              placeholder="*********"
+            />
+          </div>
+          <div class="mb-4 flex items-center justify-between">
+            <label class="block text-gray-500 font-medium">
+              <input class="mr-2 leading-tight" type="checkbox" />
+              <span class="text-sm">Recuérdame</span>
+            </label>
+            <a class="text-blue-500 hover:text-blue-400" href="#">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div>
+            <button
+              class="w-full bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline"
+              type="button"
+            >
+              Iniciar sesión
+            </button>
+          </div>
+        </form>
+        <div class="text-gray-500 text-sm mt-4 text-center">
+          ¿No tienes una cuenta?
+          <a class="text-blue-500 hover:text-blue-400 font-medium" href="#">Regístrate aquí</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Agregamos el botón para cambiar de tema -->
+    <button id="theme-toggle" class="fixed bottom-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline">
+      Tema oscuro
+    </button>
+
+    <script>
+      const themeToggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      let isDarkMode = false;
+      
+      // Función que cambia de tema
+      function toggleTheme() {
+        if (isDarkMode) {
+          body.classList.remove('bg-gray-900', 'text-white');
+          body.classList.add('bg-gray-100', 'text-gray-800');
+          themeToggle.textContent = 'Dark side';
+        } else {
+        body.classList.remove('bg-gray-100', 'text-gray-800');
+        body.classList.add('bg-gray-900', 'text-white');
+        themeToggle.textContent = 'White side';
+        }
+        isDarkMode = !isDarkMode;
+        }
+          // Agregamos un event listener al botón para cambiar el tema al hacer clic
+          themeToggle.addEventListener('click', toggleTheme);
+
+    </script>
+  </body>
+</html>    
