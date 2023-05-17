@@ -1,19 +1,25 @@
 const myConnnection = require('../databases/config')
 
 const agregarPersona = (request,response) => {
+    console.log(request.body)
     myConnnection.query(
         `insert into persona(nombre, apellido, direccion) 
-        values(?,?,?)returning id, nombre, apellido, direccion`,
-        [
-            request.body.nombre,
-            request.body.pellido,
-            request.body. direccion
-        ],
-        [
-            function(err, results) {
-                console.log(results)
-            }
-        ]
+        values("${request.body.nombre}","${request.body.apellido}","${request.body.direccion}")`,
+        function (err, result) {
+            console.log(result);
+            console.log(err);
+        }
+        //EJEMPLO 1
+        // [
+        //     request.body.nombre,
+        //     request.body.pellido,
+        //     request.body. direccion
+        // ],
+        // [
+        //     function(err, results) {
+        //         console.log(results)
+        //     }
+        // ]
     )
 }
 
