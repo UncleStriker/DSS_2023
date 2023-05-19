@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const main = require('../controllers/MainController')
 const persona = require('../controllers/PersonaController')
+const loginFunctions = require('../controllers/LoginController')
 
 router.get('/test',main.test)
 router.post('/postData',main.postData)
@@ -21,5 +22,9 @@ router.post('/respEjerc4',main.respEjerc4)
 
 router.get('/addpersona', persona.formulario)
 router.post('/agregarPersona', persona.agregarPersona)
+
+//para login
+router.get('/login',loginFunctions.loginForm)
+router.post('/doLogin', loginFunctions.doLogin)
 
 module.exports = router

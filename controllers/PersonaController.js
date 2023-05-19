@@ -9,17 +9,6 @@ const agregarPersona = (request,response) => {
             console.log(result);
             console.log(err);
         }
-        //EJEMPLO 1
-        // [
-        //     request.body.nombre,
-        //     request.body.pellido,
-        //     request.body. direccion
-        // ],
-        // [
-        //     function(err, results) {
-        //         console.log(results)
-        //     }
-        // ]
     )
 }
 
