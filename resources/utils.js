@@ -1,3 +1,7 @@
+const validaInput = (input) =>{
+  return input;
+}
+
 const validaOpenai = async (expresion)=>{
     const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
@@ -15,4 +19,4 @@ const validaOpenai = async (expresion)=>{
       console.log(completion.data.choices[0].text);
       return completion.data.choices[0].text.trim();
 }
-module.exports = {validaOpenai}
+module.exports = {validaOpenai, validaInput}

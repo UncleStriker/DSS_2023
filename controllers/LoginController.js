@@ -1,27 +1,29 @@
 const myConnnection = require('../databases/config')
-// const pool = require('../databases/configpg')
+const pool = require('../databases/config')
+const utils = require('../resources/utils')
 
 const loginForm = (request,response) => {
     response.render('login')
 }
 
 
-const doLogin = (request,response)=>{
-    
-    myConnnection.query(
-        `select * from users where username = "${request.body.username}"
-         and password = "${request.body.password}"`,
+const doLogin =  (request,response)=>{
+     const sql = `select * from users where username = "${utils.validaInput(request.body.username)}" and password = "${utils.validaInput(request.body.password)}"`  
+     console.log(sql)
+     const res =  myConnection.query(sql,
         function(err, results) {
-            if(results){
-                response.json({message:"Login successful"})
-
+            console.log(results)
+            console.log(err)
+            if(results[0]){
+                response.json({message:"Login Exitoso"})
             }else{
-                response.json({message:"Usuario no registrado."})
-
+                response.json({message:"Usuario no conocido"})
             }
         }
-    );
+      );
+
 }
+
 module.exports = {
     loginForm,
     doLogin
