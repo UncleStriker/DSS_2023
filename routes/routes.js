@@ -22,6 +22,7 @@ router.post('/respEjerc4',main.respEjerc4)
 
 router.get('/addpersona', persona.formulario)
 router.post('/agregarPersona', persona.agregarPersona)
+router.post('/preguntaOpenai',main.preguntaOpenai)
 
 //para login
 router.get('/login',loginFunctions.loginForm)
