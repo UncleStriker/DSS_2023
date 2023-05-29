@@ -6,23 +6,14 @@ const loginFunctions = require('../controllers/LoginController')
 
 router.get('/test',main.test)
 router.post('/postData',main.postData)
-
 router.get('/index',main.index)
 router.post('/enviarDatos',main.enviarDatos)
 
 router.get('/ejercicio',main.ejercicio)
 router.post('/recibeDataEjercicio',main.recibeDataEjercicio)
-
-router.get('/ejercicio2',main.ejercicio2)
-router.post('/respEjerc2',main.respEjerc2)
-router.get('/ejercicio3',main.ejercicio3)
-router.post('/respEjerc3',main.respEjerc3)
-router.get('/ejercicio4',main.ejercicio4)
-router.post('/respEjerc4',main.respEjerc4)
-
+///PARA PERSONA
 router.get('/addpersona', persona.formulario)
 router.post('/agregarPersona', persona.agregarPersona)
-router.post('/preguntaOpenai',main.preguntaOpenai)
 
 //para login
 router.get('/login',loginFunctions.loginForm)

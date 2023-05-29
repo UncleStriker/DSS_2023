@@ -1,4 +1,3 @@
-const { response, request } = require("express")
 const utils = require("../resources/utils")
 
 
@@ -27,26 +26,27 @@ const ejercicio = (request,response) =>{
     response.render('vista_ejercicio')
 }
 const recibeDataEjercicio = (request,response) =>{
-    response.render('recibe_ejercicio',{locals:{datos:request.body}})
+    console.log(request.body);
+    response.render('recibe',{locals:{datos:request.body}})
 }
-const ejercicio2 = (request,response) =>{
-    response.render('ejercicio2',{locals:{datos:request.body}})
-}
-const respEjerc2 = (request,response) =>{
-    response.render('respEjerc2',{locals:{datos:request.body}})
-}
-const ejercicio3 = (request,response) =>{
-    response.render('ejercicio3',{locals:{datos:request.body}})
-}
-const respEjerc3 = (request,response) =>{
-    response.render('respEjerc3',{locals:{datos:request.body}})
-}
-const ejercicio4 = (request,response) =>{
-    response.render('ejercicio4',{locals:{datos:request.body}})
-}
-const respEjerc4 = (request,response) =>{
-    response.render('respEjerc4',{locals:{datos:request.body}})
-}
+// const ejercicio2 = (request,response) =>{
+//     response.render('ejercicio2',{locals:{datos:request.body}})
+// }
+// const respEjerc2 = (request,response) =>{
+//     response.render('respEjerc2',{locals:{datos:request.body}})
+// }
+// const ejercicio3 = (request,response) =>{
+//     response.render('ejercicio3',{locals:{datos:request.body}})
+// }
+// const respEjerc3 = (request,response) =>{
+//     response.render('respEjerc3',{locals:{datos:request.body}})
+// }
+// const ejercicio4 = (request,response) =>{
+//     response.render('ejercicio4',{locals:{datos:request.body}})
+// }
+// const respEjerc4 = (request,response) =>{
+//     response.render('respEjerc4',{locals:{datos:request.body}})
+// }
 const preguntaOpenai = async(request, response) =>{
     const { Configuration, OpenAIApi } = require("openai");
     const configuration = new Configuration({
@@ -68,12 +68,12 @@ module.exports = {
     enviarDatos,
     ejercicio,
     recibeDataEjercicio,
-    ejercicio2,
-    respEjerc2,
-    ejercicio3,
-    respEjerc3,
-    ejercicio4,
-    respEjerc4,
+    // ejercicio2,
+    // respEjerc2,
+    // ejercicio3,
+    // respEjerc3,
+    // ejercicio4,
+    // respEjerc4,
     preguntaOpenai
 
 }
