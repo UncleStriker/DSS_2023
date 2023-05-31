@@ -1,50 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap Login Form</title>
+  <title>Login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
   <div class="container">
     <div class="row">
       <div class="col-md-8 offset-md-2">
-        <h1 class="text-center">Login</h1>
-        <div>
+        <h1 class="text-center">Login to Your Account</h1>
+        <!-- LOGIN FORM -->
+        <form method="POST" action="/doLogin">
           <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+            <input type="text" class="form-control" id="username" name="username" placeholder="Your username" style="width: 150px; height: 20px; font-size: 12px;">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
-          </div>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Your password" style="width: 150px; height: 20px; font-size: 12px;">
+          </form>
+          <!-- BOTON ENVIAR -->
           <div class="form-group">
-            <input type="submit" class="btn btn-primary" onclick = "enviar()" value="Login">
+            <input type="submit" class="btn btn-primary" onclick = "enviar()" value="Sign in">
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script>    
-    const enviar = () =>{
-      data = {
-        username : document.getElementById('username').value,
-        password : document.getElementById('password').value,
-      }
-      config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        method: 'POST'
-      }
-      fetch("/doLogin",config)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        });
-
-    }
-  </script>
 </body>
 </html>

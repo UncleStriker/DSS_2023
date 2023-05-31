@@ -3,6 +3,7 @@ const router = express.Router()
 const main = require('../controllers/MainController')
 const persona = require('../controllers/PersonaController')
 const loginFunctions = require('../controllers/LoginController')
+const loginSuccessful = require('../controllers/LoginSuccessController')
 
 router.get('/test',main.test)
 router.post('/postData',main.postData)
@@ -18,5 +19,7 @@ router.post('/agregarPersona', persona.agregarPersona)
 //para login
 router.get('/login',loginFunctions.loginForm)
 router.post('/doLogin', loginFunctions.doLogin)
+router.get('/loginSuccess',loginSuccessful.loginSuccess)
+
 
 module.exports = router
